@@ -94,6 +94,11 @@ class Movie
         return $this->movieSlug;
     }
 
+  /**
+   * @TODO use a listener on flush
+   * @param string $movieSlug
+   * @return $this
+   */
     public function setMovieSlug(string $movieSlug): self
     {
         $slugify = new Slugify();

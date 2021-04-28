@@ -6,7 +6,7 @@
       img-alt="Image"
       img-top
       tag="article"
-      style="max-width: 20rem;"
+      style=""
       class="mb-2"
       :border-variant="getActiveVideo === chapter.id ? 'primary' : ''"
       @click="setActiveVideo(chapter.id)"

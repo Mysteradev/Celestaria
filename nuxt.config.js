@@ -12,8 +12,26 @@ export default {
     ]
   },
 
+  env: {
+    apiUrl: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000/api'
+  },
+
+  webfontloader: {
+    custom: {
+      families: [
+        'Inter:n3,n5,n7,n9',
+        'Roboto:n3,n4'
+      ],
+      urls: [
+        'https://fonts.googleapis.com/css?family=Inter:300,500,700,900&display=swap',
+        'https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap'
+      ]
+    }
+  },
+
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
+    '@/assets/scss/main.scss'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -36,7 +54,8 @@ export default {
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
     // https://go.nuxtjs.dev/pwa
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    'nuxt-webfontloader'
   ],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

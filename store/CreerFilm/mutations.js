@@ -1,11 +1,17 @@
 export default {
   /**
-   * Update chapter videos list
+   * Update chapter videos list and clear the array before adding new videos
    * @param state
    * @param chapterMovies
    */
   setChapterMovies (state, chapterMovies) {
     state.chapterMovies = chapterMovies
+  },
+
+  clearChapterMovies (state) {
+    if (state.chapterMovies.length > 0) {
+      state.chapterMovies = []
+    }
   },
 
   /**
@@ -31,7 +37,9 @@ export default {
    * Add the active video to an array of selected chapters
    */
   addToSelectedChapters (state) {
-    state.selectedMovies.push(state.activeVideo)
+    const chapterMovie = state.chapterMovies.filter(movie => movie.id === state.activeVideo)
+    state.selectedMovies.push(...chapterMovie)
+    console.log(state.selectedMovies)
     state.activeVideo = undefined
   }
 }
