@@ -22,7 +22,7 @@ export default {
     }
   },
   async fetch () {
-    await this.$axios.$get(`${process.env.apiUrl}/movies/${this.$route.params.slug}`)
+    await this.$axios.$get(`${process.env.apiUrl}/movies/find_slug/${this.$route.params.slug}`)
       .then((data) => {
         this.movieData = data
       })

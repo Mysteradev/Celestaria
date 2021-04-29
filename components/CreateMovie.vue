@@ -65,7 +65,7 @@ export default {
     onSubmit (e) {
       e.preventDefault()
       alert(JSON.stringify(this.idChapters))
-      this.$axios.$post(`${process.env.apiUrl}/movies`, {
+      this.$axios.$post(`${process.env.apiUrl}/movies/new`, {
         title: this.form.title,
         chapters: JSON.stringify(this.idChapters),
         thumbnailUrl: 'https://picsum.photos/id/10/2500/1667'

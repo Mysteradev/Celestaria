@@ -1,12 +1,20 @@
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
 import express from 'express'
+import cors from 'cors'
 import routes from './routes/index'
 
 const port = 8000
 
 createConnection().then(async (connection) => {
   const app = express()
+
+  app.use(
+    cors({
+      credentials: true,
+      origin: 'http://localhost:3000'
+    })
+  )
 
   app.use(express.json())
 

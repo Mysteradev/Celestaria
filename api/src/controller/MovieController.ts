@@ -18,10 +18,14 @@ export class MovieController {
     const movieRepository = getRepository(Movie)
     const { slug } = request.params
 
+    let movie: Movie
+
     try {
-      await movieRepository.findOneOrFail({
+      movie = await movieRepository.findOneOrFail({
         where: { slug }
       })
+
+      response.send(movie)
     } catch (e) {
       response.status(404).send({ message: 'Aucun film ne possède ce slug !' })
     }

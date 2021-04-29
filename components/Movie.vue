@@ -1,6 +1,6 @@
 <template>
   <b-col col lg="3" md="6" cols="12" class="pb-3">
-    <NuxtLink :to="`/film/${movie.movieSlug}`">
+    <NuxtLink :to="`/film/${movie.slug}`">
       <b-card
         :title="movie.title"
         :img-src="movie.thumbnailUrl"

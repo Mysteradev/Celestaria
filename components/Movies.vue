@@ -19,14 +19,14 @@ export default {
   },
   data () {
     return {
-      movies: {}
+      movies: []
     }
   },
   async fetch () {
     await this.$axios.$get(
-      `${process.env.apiUrl}/movies?limit=${this.limit}&page=${this.page}`
+      `${process.env.apiUrl}/movies/all`
     ).then((data) => {
-      this.movies = data['hydra:member']
+      this.movies = data[0]
     }).catch((e) => {
 
     })
