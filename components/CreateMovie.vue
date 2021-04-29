@@ -68,8 +68,7 @@ export default {
       this.$axios.$post(`${process.env.apiUrl}/movies`, {
         title: this.form.title,
         chapters: JSON.stringify(this.idChapters),
-        thumbnailUrl: 'https://picsum.photos/id/10/2500/1667',
-        movieSlug: this.form.title
+        thumbnailUrl: 'https://picsum.photos/id/10/2500/1667
       })
         .then(() => {
           this.$router.push('/films')

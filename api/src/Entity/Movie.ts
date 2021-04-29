@@ -16,5 +16,5 @@ export class Movie {
   chapters: string;
 
   @Column()
-  slug: string;Ils
+  slug: string;
 }
