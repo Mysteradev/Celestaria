@@ -1,16 +1,18 @@
 import 'reflect-metadata'
 import { createConnection } from 'typeorm'
-import * as express from 'express'
+import express from 'express'
 import routes from './routes/index'
+
+const port = 8000
 
 createConnection().then(async (connection) => {
   const app = express()
 
-  app.use(express.json)
+  app.use(express.json())
 
-  app.use('/', routes)
+  app.use('/api', routes)
 
-  app.listen(8000)
+  app.listen(port)
 
-  console.log('Server started on http://localhost:8000')
+  console.log(`Server started on http://localhost:${port}`)
 }).catch(error => console.log(error))

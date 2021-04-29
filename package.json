@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
+    "client": "nuxt",
+    "api": "cd api && yarn run dev",
+    "dev": "concurrently \"yarn run client\" \"yarn run api\"",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
