@@ -10,14 +10,18 @@
               </h1>
               <h2>Vous êtes les maitres du jeu !</h2>
             </div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda, culpa cupiditate deserunt ea exercitationem fugiat harum illo iusto nemo numquam officiis, placeat porro praesentium recusandae reiciendis sapiente similique sint, veniam voluptas?</p>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci assumenda, culpa cupiditate deserunt
+              ea exercitationem fugiat harum illo iusto nemo numquam officiis, placeat porro praesentium recusandae
+              reiciendis sapiente similique sint, veniam voluptas?
+            </p>
 
-            <b-row class="pt-3">
+            <b-row>
               <b-col>
-                <MainButton text="Créer mon film" link="/creer-film" />
+                <MainButton text="Créer mon film" link="/creer-film" type="empty" class="text-white" />
               </b-col>
               <b-col>
-                <MainButton text="Voir les films" link="/creer-film" type="empty">
+                <MainButton text="Voir les films" link="/creer-film">
                   <BIconArrowRight slot="icon" />
                 </MainButton>
               </b-col>
@@ -31,13 +35,19 @@
 
       <b-row>
         <b-col>
-          33452 films crées!
+          <b-card class="text-center">
+            33452 films crées!
+          </b-card>
         </b-col>
         <b-col>
-          350h de films!
+          <b-card class="text-center">
+            350h de films!
+          </b-card>
         </b-col>
         <b-col>
-          350000 films différents peuvent être crée
+          <b-card class="text-center">
+            350000 films différents peuvent être crée
+          </b-card>
         </b-col>
       </b-row>
     </b-container>
@@ -55,6 +65,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+html {
+  background-image: url('~/assets/blop.svg');
+}
 header {
   height: 100vh;
 

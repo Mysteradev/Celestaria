@@ -1,7 +1,7 @@
 <template>
   <NuxtLink :to="link">
     <b-button :class="type">
-      <span class="pr-3">{{ text }}</span> <slot name="icon" />
+      <span>{{ text }}</span> <slot name="icon" />
     </b-button>
   </NuxtLink>
 </template>
