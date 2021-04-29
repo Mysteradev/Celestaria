@@ -1,6 +1,6 @@
 <template>
   <header>
-    <b-container class="h-100">
+    <b-container fluid="lg" class="h-100">
       <b-row class="h-100">
         <b-col class="my-auto">
           <div class="header-content mx-auto">

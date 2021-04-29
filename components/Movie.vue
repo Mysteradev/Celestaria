@@ -1,16 +1,16 @@
 <template>
   <b-col col lg="3" md="6" cols="12" class="pb-3">
-    <!--    <NuxtLink :to="movie.slug">-->
-    <b-card
-      :title="movie.author"
-      :img-src="movie.download_url"
-      img-alt="Image"
-      img-top
-      tag="article"
-      style="max-width: 20rem;"
-      class="mb-2"
-    />
-    <!--    </NuxtLink>-->
+    <NuxtLink :to="`/film/${movie.movieSlug}`">
+      <b-card
+        :title="movie.title"
+        :img-src="movie.thumbnailUrl"
+        img-alt="Image"
+        img-top
+        tag="article"
+        style="max-width: 20rem;"
+        class="mb-2"
+      />
+    </NuxtLink>
   </b-col>
 </template>
 

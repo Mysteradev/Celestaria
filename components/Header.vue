@@ -10,9 +10,11 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav class="ml-auto">
-        <b-nav-item class="align-bottom">
-          Voir les films
-        </b-nav-item>
+        <b-button variant="link" class="text-decoration-none">
+          <NuxtLink to="/films" class="black">
+            Voir les films
+          </NuxtLink>
+        </b-button>
         <MainButton text="Créer un film" link="/creer-film" />
       </b-navbar-nav>
     </b-collapse>

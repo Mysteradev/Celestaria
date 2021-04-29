@@ -1,5 +1,5 @@
 <template>
-  <b-row>
+  <b-row class="pt-5">
     <Movie v-for="movie in movies" :key="movie.id" :movie="movie" />
   </b-row>
 </template>
@@ -19,14 +19,16 @@ export default {
   },
   data () {
     return {
-      movies: []
+      movies: {}
     }
   },
   async fetch () {
     await this.$axios.$get(
-      `https://picsum.photos/v2/list?limit=${this.limit}&page=${this.page}`
+      `${process.env.apiUrl}/movies?limit=${this.limit}&page=${this.page}`
     ).then((data) => {
-      this.movies = data
+      this.movies = data['hydra:member']
+    }).catch((e) => {
+
     })
   }
 }
