@@ -11,8 +11,8 @@
 
       <b-collapse id="nav-collapse" is-nav>
         <b-navbar-nav class="ml-auto">
-          <MainButton text="Les films" link="/films" class="mr-3" type="empty" />
-          <MainButton text="Votre film" link="/creer-film" />
+          <MainButton text="Créer un film" link="/creer-film" type="empty" class="mr-3" />
+          <MainButton text="Voir les films" link="/films" />
         </b-navbar-nav>
       </b-collapse>
     </b-navbar>
