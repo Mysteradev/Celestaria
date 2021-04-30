@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { getRepository } from 'typeorm'
+import { getConnection, getRepository } from 'typeorm'
 import slugify from 'slugify'
 import { Movie } from '../entity/Movie'
 
@@ -29,6 +29,14 @@ export class MovieController {
     } catch (e) {
       response.status(404).send({ message: 'Aucun film ne possède ce slug !' })
     }
+  }
+
+  static async findRecommended (request: Request, response: Response) {
+    const connectionManager = getConnection()
+    // TODO A convertir avec le QueryBuilder
+    const result = await connectionManager.query('SELECT * FROM movie AS t1 JOIN (SELECT id FROM movie ORDER BY RAND() LIMIT 3) as t2 ON t1.id=t2.id')
+
+    response.send(result)
   }
 
   static async findAll (request: Request, response: Response) {

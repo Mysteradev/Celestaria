@@ -8,14 +8,16 @@
       <h1>
         {{ movieData.title }}
       </h1>
-      <movie-container />
+      <MovieContainer />
     </b-row>
   </b-container>
 </template>
 
 <script>
+import MovieContainer from '../../components/MovieContainer'
 export default {
   name: 'Slug',
+  components: { MovieContainer },
   data () {
     return {
       movieData: {}

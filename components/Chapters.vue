@@ -28,9 +28,17 @@
 
 <script>
 import { mapMutations } from 'vuex'
+import CreateMovie from './CreateMovie'
+import Chapter from './Chapter'
+import ChapterLoading from './ChapterLoading'
 
 export default {
   name: 'Chapters',
+  components: {
+    CreateMovie,
+    Chapter,
+    ChapterLoading
+  },
   async fetch () {
     this.clearChapterMovies()
     await this.$axios.$get(

@@ -13,7 +13,8 @@ export default {
   },
 
   env: {
-    apiUrl: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000/api'
+    apiUrl: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:8000/api',
+    url: process.env.NODE_ENV === 'production' ? '' : 'http://localhost:3000'
   },
 
   webfontloader: {
@@ -60,6 +61,11 @@ export default {
     '@nuxtjs/pwa',
     'nuxt-webfontloader'
   ],
+
+  bootstrapVue: {
+    bootstrapCSS: false,
+    bootstrapVueCSS: false
+  },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {},

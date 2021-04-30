@@ -1,12 +1,17 @@
 <template>
   <b-row class="pt-5">
-    <Movie v-for="movie in movies" :key="movie.id" :movie="movie" />
+    <Movie v-for="movie in movies" :key="movie.id" :movie="movie" class="col-12 col-lg-3 col-md-12" />
   </b-row>
 </template>
 
 <script>
+import Movie from './Movie'
+
 export default {
   name: 'Movies',
+  components: {
+    Movie
+  },
   props: {
     limit: {
       type: Number,
