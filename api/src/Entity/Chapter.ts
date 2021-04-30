@@ -12,5 +12,8 @@ export class Chapter {
   title: string;
 
   @Column()
-  videoUrl: string;
+  category: string;
+
+  @Column()
+  fileName: string;
 }
