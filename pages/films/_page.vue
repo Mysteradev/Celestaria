@@ -1,14 +1,17 @@
 <template>
   <b-container class="pt-5">
-    <Movies limit="12" />
+    <Movies :limit="12" />
   </b-container>
 </template>
 
 <script>
-import Movies from '../components/Movies'
+import Movies from '../../components/Movies'
+
 export default {
-  name: 'Films',
-  components: { Movies }
+  name: 'Page',
+  components: {
+    Movies
+  }
 }
 </script>
 

@@ -6,44 +6,43 @@
       :img-src="movie.thumbnailUrl"
       img-alt="Image de miniature du film"
       img-top
+      :img-height="170"
       tag="article"
       style="max-width: 20rem;"
       :class="hover ? 'card-hover' : ''"
       class="mb-2"
     >
       <template #footer>
-        <b-card-text>
-          <b-row class="d-flex justify-content-between">
-            <b-col cols="9">
-              <small class="text-muted">{{ getFormattedDate }}</small>
-            </b-col>
+        <b-row class="d-flex justify-content-between">
+          <b-col cols="9">
+            <small class="text-muted">{{ getFormattedDate }}</small>
+          </b-col>
 
-            <b-col cols="3">
-              <b-dropdown
-                dropleft
-                :lazy="true"
-                size="sm"
-                variant="link"
-                toggle-class="text-decoration-none"
-                no-caret
-              >
-                <template #button-content>
-                  <BIconThreeDots class="icon" />
-                  <span class="sr-only">Search</span>
-                </template>
-                <b-dropdown-item @click="share('Facebook')">
-                  <BIconFacebook class="mr-2" style="color: #4267B2;" />Partager sur Facebook
-                </b-dropdown-item>
-                <b-dropdown-item @click="share('Twitter')">
-                  <BIconTwitter class="mr-2" style="color: #1DA1F2;" />Partager sur Twitter
-                </b-dropdown-item>
-                <b-dropdown-item @click="share">
-                  <BIconLink class="mr-2" />Copier le lien
-                </b-dropdown-item>
-              </b-dropdown>
-            </b-col>
-          </b-row>
-        </b-card-text>
+          <b-col cols="3">
+            <b-dropdown
+              dropleft
+              :lazy="true"
+              size="sm"
+              variant="link"
+              toggle-class="text-decoration-none"
+              no-caret
+            >
+              <template #button-content>
+                <BIconThreeDots class="icon" />
+                <span class="sr-only">Search</span>
+              </template>
+              <b-dropdown-item @click="share('Facebook')">
+                <BIconFacebook class="mr-2" style="color: #4267B2;" />Partager sur Facebook
+              </b-dropdown-item>
+              <b-dropdown-item @click="share('Twitter')">
+                <BIconTwitter class="mr-2" style="color: #1DA1F2;" />Partager sur Twitter
+              </b-dropdown-item>
+              <b-dropdown-item @click="share">
+                <BIconLink class="mr-2" />Copier le lien
+              </b-dropdown-item>
+            </b-dropdown>
+          </b-col>
+        </b-row>
       </template>
     </b-card>
   </NuxtLink>
@@ -99,6 +98,7 @@ export default {
   img {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    object-fit: cover;
   }
 
   .icon {
@@ -118,6 +118,7 @@ export default {
     bottom: 0;
     top: auto;
     background-image: linear-gradient(0deg, black, transparent);
+    border-radius: 0;
 
     .card-title {
       color: white;
@@ -132,7 +133,10 @@ export default {
   }
 
   .card-hover {
-    transform: translateY(-10px);
+
+    &:hover {
+      transform: translateY(-10px);
+    }
   }
 }
 </style>

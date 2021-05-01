@@ -1,3 +1,5 @@
+@import "variables";
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Inter", serif;
   font-weight: bolder;
@@ -26,7 +28,7 @@ a {
 
 ul.dropdown-menu.show {
   border: none !important;
-  box-shadow: 0 8px 18px -6px rgba(24, 39, 75, 0.12), 0px 12px 42px -4px rgba(24, 39, 75, 0.12);
+  box-shadow: $box-shadow;
   background: #f7f7f7;
 
   .dropdown-item {
@@ -36,6 +38,25 @@ ul.dropdown-menu.show {
       background-color: darken(#f7f7f7, 20%);
     }
   }
+}
+
+.modal-body {
+  padding: 0 !important;
+}
+
+.page-link {
+  border: 0 !important;
+  box-shadow: $box-shadow;
+
+  &:focus {
+    box-shadow: none !important;
+    outline: none;
+  }
+}
+
+.page-item.active .page-link {
+  background: linear-gradient(90deg, rgba(243, 72, 104,1) 20.796875%,rgba(242, 71, 104,1) 20.796875%,rgba(158, 0, 236,1) 80.796875%);
+  color: white !important;
 }
 
 @import '~bootstrap/scss/bootstrap';

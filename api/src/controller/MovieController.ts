@@ -40,9 +40,23 @@ export class MovieController {
   }
 
   static async findAll (request: Request, response: Response) {
-    const movieRepository = getRepository(Movie)
+    const { limit, offset } = request.query
 
-    const movies = await movieRepository.findAndCount()
+    const query = await getRepository(Movie)
+      .createQueryBuilder('movie')
+
+    if (!isNaN(Number(offset))) {
+      query.skip(Number(offset))
+    }
+
+    if (!isNaN(Number(limit))) {
+      query.take(Number(limit))
+    } else {
+      query.take(12)
+    }
+
+    const movies = await query.getManyAndCount()
+
     response.send(movies)
   }
 

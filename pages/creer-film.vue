@@ -7,8 +7,13 @@
 </template>
 
 <script>
+import Chapters from '../components/Chapters'
+
 export default {
-  name: 'CreerFilm'
+  name: 'CreerFilm',
+  components: {
+    Chapters
+  }
 }
 </script>
 
