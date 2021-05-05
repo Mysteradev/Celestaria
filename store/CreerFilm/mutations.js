@@ -39,7 +39,6 @@ export default {
   addToSelectedChapters (state) {
     const chapterMovie = state.chapterMovies.filter(movie => movie.id === state.activeVideo)
     state.selectedMovies.push(...chapterMovie)
-    console.log(state.selectedMovies)
     state.activeVideo = undefined
   }
 }
