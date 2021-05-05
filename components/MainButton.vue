@@ -1,7 +1,7 @@
 <template>
   <NuxtLink :to="link">
     <b-button :class="type">
-      <span class="pr-3">{{ text }}</span> <slot name="icon" />
+      <span>{{ text }}</span> <slot name="icon" />
     </b-button>
   </NuxtLink>
 </template>
@@ -34,23 +34,17 @@ export default {
 .btn {
   font-family: "Inter", sans-serif;
   font-weight: 500;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 12px 32px;
-
-  min-width: 154px;
-  min-height: 48px;
+  padding: 10px 30px;
   border-radius: 10px;
 
   &.solid {
-    background: #000000;
+    background: #101010;
   }
 
   &.empty {
     background: transparent;
-    border: 1px solid black;
-    color: black;
+    border: 1px solid #101010;
+    color: #101010;
   }
 }
 </style>

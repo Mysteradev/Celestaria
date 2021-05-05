@@ -11,7 +11,7 @@ export default {
     return {
       recommandedVideo: {}
     }
-  },
+  }
   // async fetch () {
   //   this.$axios.$get(`${process.env.apiUrl}/movies/`)
   // }
