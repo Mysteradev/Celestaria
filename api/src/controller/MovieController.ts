@@ -1,5 +1,5 @@
 import { Request, Response } from 'express'
-import { getRepository } from 'typeorm'
+import { getConnection, getRepository } from 'typeorm'
 import slugify from 'slugify'
 import { Movie } from '../entity/Movie'
 
@@ -31,10 +31,32 @@ export class MovieController {
     }
   }
 
-  static async findAll (request: Request, response: Response) {
-    const movieRepository = getRepository(Movie)
+  static async findRecommended (request: Request, response: Response) {
+    const connectionManager = getConnection()
+    // TODO A convertir avec le QueryBuilder
+    const result = await connectionManager.query('SELECT * FROM movie AS t1 JOIN (SELECT id FROM movie ORDER BY RAND() LIMIT 3) as t2 ON t1.id=t2.id')
 
-    const movies = await movieRepository.findAndCount()
+    response.send(result)
+  }
+
+  static async findAll (request: Request, response: Response) {
+    const { limit, offset } = request.query
+
+    const query = await getRepository(Movie)
+      .createQueryBuilder('movie')
+
+    if (!isNaN(Number(offset))) {
+      query.skip(Number(offset))
+    }
+
+    if (!isNaN(Number(limit))) {
+      query.take(Number(limit))
+    } else {
+      query.take(12)
+    }
+
+    const movies = await query.getManyAndCount()
+
     response.send(movies)
   }
 

@@ -5,8 +5,13 @@
 </template>
 
 <script>
+import Movies from '../../components/Movies'
+
 export default {
-  name: 'Films'
+  name: 'Page',
+  components: {
+    Movies
+  }
 }
 </script>
 

@@ -35,8 +35,13 @@
 </template>
 
 <script>
+import Chapter from './Chapter'
+
 export default {
   name: 'CreateMovie',
+  components: {
+    Chapter
+  },
   data () {
     return {
       form: {

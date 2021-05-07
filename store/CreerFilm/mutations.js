@@ -8,6 +8,10 @@ export default {
     state.chapterMovies = chapterMovies
   },
 
+  /**
+   * Clear the previously fetched chapters
+   * @param state
+   */
   clearChapterMovies (state) {
     if (state.chapterMovies.length > 0) {
       state.chapterMovies = []

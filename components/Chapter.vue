@@ -5,6 +5,7 @@
       img-src="https://picsum.photos/600/300/?image=25"
       img-alt="Image"
       img-top
+      :img-height="170"
       tag="article"
       style=""
       class="mb-2"
@@ -15,10 +16,20 @@
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </b-card-text>
 
-      <b-button href="#" variant="primary">
+      <b-button variant="primary" @click="openModal">
         Voir la vidéo
       </b-button>
     </b-card>
+
+    <b-modal
+      ref="movieModal"
+      size="xl"
+      centered
+      :hide-header="true"
+      :hide-footer="true"
+    >
+      <vue-core-video-player :src="getLinkForChapter" />
+    </b-modal>
   </b-col>
 </template>
 
@@ -36,12 +47,18 @@ export default {
   computed: {
     getActiveVideo () {
       return this.$store.state.CreerFilm.activeVideo
+    },
+    getLinkForChapter () {
+      return this.$store.state.CreerFilm.chapterMovies[this.getActiveVideo]?.videoUrl
     }
   },
   methods: {
     ...mapMutations({
       setActiveVideo: 'CreerFilm/setActiveVideo'
-    })
+    }),
+    openModal () {
+      this.$refs.movieModal.show()
+    }
   }
 }
 </script>
@@ -56,5 +73,9 @@ export default {
     &:hover {
       transform: translateY(-10px);
     }
+  }
+
+  .modal-body-custom {
+    padding: 0 !important;
   }
 </style>
