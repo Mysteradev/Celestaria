@@ -16,7 +16,7 @@
         Some quick example text to build on the card title and make up the bulk of the card's content.
       </b-card-text>
 
-      <b-button variant="primary" @click="openModal(chapter.id)">
+      <b-button variant="primary" @click="openModal">
         Voir la vidéo
       </b-button>
     </b-card>
@@ -28,7 +28,7 @@
       :hide-header="true"
       :hide-footer="true"
     >
-      <vue-core-video-player src="https://storage.coverr.co/videos/gt8XfpzJmsVGwQT25V1b5K7MnrZFkav01?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHBJZCI6Ijg3NjdFMzIzRjlGQzEzN0E4QTAyIiwiaWF0IjoxNjE5NjU3MDMwfQ.3adX77blhqsQNHBPScTnjgKYXi3GglhhDZiVxS-2dW4" />
+      <vue-core-video-player :src="getLinkForChapter" />
     </b-modal>
   </b-col>
 </template>
@@ -47,13 +47,16 @@ export default {
   computed: {
     getActiveVideo () {
       return this.$store.state.CreerFilm.activeVideo
+    },
+    getLinkForChapter () {
+      return this.$store.state.CreerFilm.chapterMovies[this.getActiveVideo]?.videoUrl
     }
   },
   methods: {
     ...mapMutations({
       setActiveVideo: 'CreerFilm/setActiveVideo'
     }),
-    openModal (id) {
+    openModal () {
       this.$refs.movieModal.show()
     }
   }

@@ -8,6 +8,10 @@ export default {
     state.chapterMovies = chapterMovies
   },
 
+  /**
+   * Clear the previously fetched chapters
+   * @param state
+   */
   clearChapterMovies (state) {
     if (state.chapterMovies.length > 0) {
       state.chapterMovies = []
@@ -39,7 +43,6 @@ export default {
   addToSelectedChapters (state) {
     const chapterMovie = state.chapterMovies.filter(movie => movie.id === state.activeVideo)
     state.selectedMovies.push(...chapterMovie)
-    console.log(state.selectedMovies)
     state.activeVideo = undefined
   }
 }
