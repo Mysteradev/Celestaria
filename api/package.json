@@ -17,9 +17,8 @@
     "typeorm": "^0.2.32"
   },
   "scripts": {
-    "start": "ts-node src/index.ts",
+    "start": "node build/index.js",
     "dev": "ts-node-dev src/index.ts",
     "postinstall": "tsc",
-    "prod": "node build/index.js"
   }
 }
