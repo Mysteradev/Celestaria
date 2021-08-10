@@ -19,6 +19,6 @@
   "scripts": {
     "start": "node build/index.js",
     "dev": "ts-node-dev src/index.ts",
-    "postinstall": "tsc",
+    "postinstall": "tsc"
   }
 }
