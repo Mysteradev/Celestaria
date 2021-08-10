@@ -20,7 +20,7 @@ createConnection().then(async (connection) => {
 
   app.use('/api', routes)
 
-  app.listen(port)
+  app.listen(process.env.PORT || port)
 
-  console.log(`Server started on http://localhost:${port}`)
+  console.log(`Server started on http://localhost:${process.env.PORT || port}`)
 }).catch(error => console.log(error))
