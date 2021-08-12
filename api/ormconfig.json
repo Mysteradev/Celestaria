@@ -1,15 +1,15 @@
 {
-   "type": "mysql",
+   "type": "postgres",
    "host": "localhost",
-   "port": 3306,
-   "username": "root",
-   "password": "",
+   "port": 5432,
+   "username": "postgres",
+   "password": "example",
    "database": "celestaria",
    "synchronize": true,
    "logging": false,
    "entities": [
-     "dist/**/*.entity{.ts,.js}",
-     "src/**/*.entity{.ts,.js}"
+     "dist/entity/**/*{.ts,.js}",
+     "src/entity/**/*.ts"
    ],
    "migrations": [
       "src/migration/**/*.ts"
